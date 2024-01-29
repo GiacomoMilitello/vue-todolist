@@ -16,17 +16,47 @@ Bonus:
 2- cliccando sul testo dell'item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
 */
 
-const { createApp } = Vue
- 
-  createApp({
-    data() {
+const {
+  createApp
+} = Vue
+
+createApp({
+  data(){
       return {
-        
-    },
-    created(){
-        
+          newTask: "",
+          toDo: [
+              { 
+                  text: "Portare a spasso i cani", 
+                  done: false 
+              },
+              { 
+                  text: "Comprare i croccantini", 
+                  done: false 
+              },
+              { 
+                  text: "Lavare i cani", 
+                  done: false 
+              }
+          ]
+      }
+  },
+  created(){
+
+  },
+  methods:{
+      addTask(){
+          if (this.newTask.trim()!== ""){
+              this.toDo.push({
+                  text: this.newTask, done: false,
+              })
+              this.newTask = ""
+          }
       },
-    methods: {
-      
-    }
-  }).mount('#app')
+      removeTask(index){
+          this.toDo.splice(index, 1)
+      },
+      lineThrough(index){
+          this.toDo[index].done = !this.toDo[index].done
+      }
+  }
+}).mount("#app")

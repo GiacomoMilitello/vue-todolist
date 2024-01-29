@@ -29,5 +29,13 @@ input[type="text"] {
     width: 350px;
     background-color: transparent;
     border: 1px dashed rosybrown;
+    margin-top: 3px;
     margin-left: 35px;
+    height: 25px;
+}
+.done{
+    text-decoration: line-through;
+}
+#done-ok{
+    margin-left: 33px;
 }
